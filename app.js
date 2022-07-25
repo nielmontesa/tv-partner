@@ -13,7 +13,7 @@ searchForm.addEventListener("submit", async (e) => {
   for (let res of result.data) {
     const card = document.createElement("div");
     card.classList.add("card");
-    if (res.show.image.medium != null) {
+    if (res.show.image != null) {
       const image = document.createElement("img");
       image.src = res.show.image.medium;
       image.classList.add("show-cover");
@@ -62,7 +62,7 @@ searchForm.addEventListener("submit", async (e) => {
     list.addEventListener("click", () => {
       const copiedCard = list.parentElement.parentElement.cloneNode(true);
       console.log(copiedCard);
-      watchlistContainer.append(copiedCard);
+      watchlistContainer.prepend(copiedCard);
     });
   }
 });
