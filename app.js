@@ -60,9 +60,20 @@ searchForm.addEventListener("submit", async (e) => {
 
   for (let list of addWatchlist) {
     list.addEventListener("click", () => {
+      watchlistContainer.scrollTop = 0;
       const copiedCard = list.parentElement.parentElement.cloneNode(true);
-      console.log(copiedCard);
+      copiedCard.lastChild.lastChild.classList.remove("add-watchlist");
+      copiedCard.lastChild.lastChild.classList.add("remove-watchlist");
       watchlistContainer.prepend(copiedCard);
+
+      const buttonRemoved = document.querySelectorAll(".remove-watchlist");
+
+      for (let btn of buttonRemoved) {
+        btn.innerText = "remove from watchlist";
+        btn.addEventListener("click", () => {
+          btn.parentElement.parentElement.remove();
+        });
+      }
     });
   }
 });

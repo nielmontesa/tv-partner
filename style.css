@@ -163,6 +163,7 @@ body {
   padding: 1em;
   border-left: 3px solid black;
   text-align: justify;
+  width: 100%;
 }
 
 .desc-div h3 {
